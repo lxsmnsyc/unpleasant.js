@@ -21,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/LXSMNSYC/unpleasant.js/issues"
   },
-  "homepage": "https://github.com/LXSMNSYC/unpleasant.js#readme"
+  "homepage": "https://github.com/LXSMNSYC/unpleasant.js#readme",
+  "dependencies": {
+    "eslint-plugin-import": "^2.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "jsdoc": "^3.5.5",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0"
+  }
 }
