@@ -1,0 +1,25 @@
+{
+  "name": "unpleasant",
+  "version": "0.1.0",
+  "description": "💫 Noise functions for JS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc --reporter=html mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LXSMNSYC/unpleasant.js.git"
+  },
+  "keywords": [
+    "noise",
+    "webgl",
+    "math",
+    "vector"
+  ],
+  "author": "LXSMNSYC (alexis.munsayac@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LXSMNSYC/unpleasant.js/issues"
+  },
+  "homepage": "https://github.com/LXSMNSYC/unpleasant.js#readme"
+}
