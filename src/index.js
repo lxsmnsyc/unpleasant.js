@@ -32,6 +32,7 @@
 export { default as generic1Noise1D } from './generic11D';
 export { default as generic1Noise2D } from './generic12D';
 export { default as generic2Noise } from './generic2';
+export { default as generic3Noise } from './generic3';
 
 export { default as cellular2DNoise } from './cellular2D';
 
