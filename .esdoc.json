@@ -5,6 +5,15 @@
   [ 
     {
       "name": "esdoc-standard-plugin"
+    },
+    {
+      "name": "esdoc-integrate-test-plugin",
+      "option": {
+        "source": "./test/",
+        "interfaces": ["describe", "it", "context", "suite", "test"],
+        "includes": ["(spec|Spec|test|Test)\\.js$"],
+        "excludes": ["\\.config\\.js$"]
+      }
     }
   ]
 }

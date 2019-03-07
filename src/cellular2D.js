@@ -41,6 +41,10 @@ const KO = 0.42857142857;
  */
 const JITTER = 1.0;
 /**
+ * @ignore
+ */
+const swapIfLess = (a, b) => ((a < b) ? [a, b] : [b, a]);
+/**
  * @memberof Unpleasant
  * @description
  * The basic idea is to take random points in space (2- or 3-dimensional)
@@ -186,17 +190,8 @@ const cellular2D = (x, y) => {
   d2y = max(d1ay, d2y);
   d2z = max(d1az, d2z);
 
-  if (d1y < d1x) {
-    const tmp = d1x;
-    d1x = d1y;
-    d1y = tmp;
-  }
-
-  if (d1z < d1x) {
-    const tmp = d1z;
-    d1z = d1x;
-    d1x = tmp;
-  }
+  [d1x, d1y] = swapIfLess(d1x, d1y);
+  [d1x, d1z] = swapIfLess(d1x, d1z);
 
   d1y = min(d1y, d2y);
   d1z = min(d1z, d2z);
