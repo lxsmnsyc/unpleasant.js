@@ -37,3 +37,4 @@ export { default as generic3Noise } from './generic3';
 export { default as cellular2DNoise } from './cellular2D';
 
 export { default as basicPerlinNoise } from './basicPerlin';
+export { default as classicPerlinNoise } from './classicPerlin';

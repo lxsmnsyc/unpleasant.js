@@ -31,13 +31,12 @@
  */
 export const {
   sin, cos, floor, min, max, PI, sqrt,
+  abs,
 } = Math;
-
 /**
  * @ignore
  */
 export const mix = (x, y, t) => x + (y - x) * t;
-
 /**
  * @ignore
  */
@@ -53,7 +52,6 @@ export const smoothstep = (x, y, t) => {
   const a = clamp((t - x) / (y - x), 0.0, 1.0);
   return smooth(a * a * (3.0 - 2.0 * a));
 };
-
 /**
  * @ignore
  */
@@ -61,23 +59,15 @@ export const NOISE_CONSTANT = 43758.5453123;
 /**
  * @ignore
  */
-export const MOD_289_CONST = 0.00346020761;
-/**
- * @ignore
- */
 export const MOD_7_CONST = 0.14285714285;
 /**
  * @ignore
  */
-export const mod289 = x => x - floor(x * MOD_289_CONST) * 289.0;
+export const K_41 = 0.0243902439;
 /**
  * @ignore
  */
-export const mod7 = x => x - floor(x * MOD_7_CONST) * 289.0;
-/**
- * @ignore
- */
-export const permute289 = x => mod289((34.0 * x + 1.0) * x);
+export const permute289 = x => ((34.0 * x + 1.0) * x) % 289;
 /**
  * @ignore
  */
@@ -90,3 +80,7 @@ export const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * NOISE_CON
  * @ignore
  */
 export const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * NOISE_CONSTANT);
+/**
+ * @ignore
+ */
+export const fade = t => t * t * t * (t * (t * 6.0 - 15.0) + 10.0);

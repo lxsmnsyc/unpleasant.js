@@ -26,12 +26,12 @@
  * @copyright Alexis Munsayac 2019
  */
 import {
-  floor, min, max, sqrt, MOD_7_CONST, mod289, permute289 as permute, mod7,
+  floor, min, max, sqrt, permute289 as permute,
 } from './utils';
 /**
  * @ignore
  */
-const K = MOD_7_CONST;
+const K = 0.14285714285;
 /**
  * @ignore
  */
@@ -63,8 +63,8 @@ const JITTER = 1.0;
  * @returns {Array} a 2D vector
  */
 export default function cellular2D(x, y) {
-  const Pix = mod289(floor(x));
-  const Piy = mod289(floor(y));
+  const Pix = floor(x) % 289;
+  const Piy = floor(y) % 289;
 
   const Pfx = x % 1;
   const Pfy = y % 1;
@@ -93,9 +93,9 @@ export default function cellular2D(x, y) {
   let oxy = (Kpy % 1) - KO;
   let oxz = (Kpz % 1) - KO;
 
-  let oyx = mod7(floor(Kpx)) * K - KO;
-  let oyy = mod7(floor(Kpy)) * K - KO;
-  let oyz = mod7(floor(Kpz)) * K - KO;
+  let oyx = (floor(Kpx) % 7) * K - KO;
+  let oyy = (floor(Kpy) % 7) * K - KO;
+  let oyz = (floor(Kpz) % 7) * K - KO;
 
   let dxx = Pfx + 0.5 + JITTER * oxx;
   let dxy = Pfx + 0.5 + JITTER * oxy;
@@ -121,9 +121,9 @@ export default function cellular2D(x, y) {
   oxy = (Kpy % 1) - KO;
   oxz = (Kpz % 1) - KO;
 
-  oyx = mod7(floor(Kpx)) * K - KO;
-  oyy = mod7(floor(Kpy)) * K - KO;
-  oyz = mod7(floor(Kpz)) * K - KO;
+  oyx = (floor(Kpx) % 7) * K - KO;
+  oyy = (floor(Kpy) % 7) * K - KO;
+  oyz = (floor(Kpz) % 7) * K - KO;
 
   dxx = Pfx + 0.5 + JITTER * oxx;
   dxy = Pfx + 0.5 + JITTER * oxy;
@@ -149,9 +149,9 @@ export default function cellular2D(x, y) {
   oxy = (Kpy % 1) - KO;
   oxz = (Kpz % 1) - KO;
 
-  oyx = mod7(floor(Kpx)) * K - KO;
-  oyy = mod7(floor(Kpy)) * K - KO;
-  oyz = mod7(floor(Kpz)) * K - KO;
+  oyx = (floor(Kpx) % 7) * K - KO;
+  oyy = (floor(Kpy) % 7) * K - KO;
+  oyz = (floor(Kpz) % 7) * K - KO;
 
   dxx = Pfx + 0.5 + JITTER * oxx;
   dxy = Pfx + 0.5 + JITTER * oxy;

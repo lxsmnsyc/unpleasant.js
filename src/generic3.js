@@ -28,12 +28,8 @@
  * @copyright Alexis Munsayac 2019
  */
 import {
-  floor, smooth, permute289, mix,
+  floor, smooth, permute289, mix, K_41,
 } from './utils';
-/**
- * @ignore
- */
-const K_41 = 0.0243902439;
 /**
  * @memberof Unpleasant
  * Generic 3 Noise

@@ -35,13 +35,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
  */
 const {
   sin, cos, floor, min, max, PI, sqrt,
+  abs,
 } = Math;
-
 /**
  * @ignore
  */
 const mix = (x, y, t) => x + (y - x) * t;
-
 /**
  * @ignore
  */
@@ -57,7 +56,6 @@ const smoothstep = (x, y, t) => {
   const a = clamp((t - x) / (y - x), 0.0, 1.0);
   return smooth(a * a * (3.0 - 2.0 * a));
 };
-
 /**
  * @ignore
  */
@@ -65,23 +63,11 @@ const NOISE_CONSTANT = 43758.5453123;
 /**
  * @ignore
  */
-const MOD_289_CONST = 0.00346020761;
+const K_41 = 0.0243902439;
 /**
  * @ignore
  */
-const MOD_7_CONST = 0.14285714285;
-/**
- * @ignore
- */
-const mod289 = x => x - floor(x * MOD_289_CONST) * 289.0;
-/**
- * @ignore
- */
-const mod7 = x => x - floor(x * MOD_7_CONST) * 289.0;
-/**
- * @ignore
- */
-const permute289 = x => mod289((34.0 * x + 1.0) * x);
+const permute289 = x => ((34.0 * x + 1.0) * x) % 289;
 /**
  * @ignore
  */
@@ -94,6 +80,10 @@ const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * NOISE_CONSTANT) 
  * @ignore
  */
 const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * NOISE_CONSTANT);
+/**
+ * @ignore
+ */
+const fade = t => t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
 
 /**
  * @license
@@ -245,10 +235,6 @@ const generic2 = (x, y) => {
 };
 
 /**
- * @ignore
- */
-const K_41 = 0.0243902439;
-/**
  * @memberof Unpleasant
  * Generic 3 Noise
  * @example
@@ -346,7 +332,7 @@ const generic3 = (x, y, z) => {
 /**
  * @ignore
  */
-const K = MOD_7_CONST;
+const K = 0.14285714285;
 /**
  * @ignore
  */
@@ -378,8 +364,8 @@ const JITTER = 1.0;
  * @returns {Array} a 2D vector
  */
 function cellular2D(x, y) {
-  const Pix = mod289(floor(x));
-  const Piy = mod289(floor(y));
+  const Pix = floor(x) % 289;
+  const Piy = floor(y) % 289;
 
   const Pfx = x % 1;
   const Pfy = y % 1;
@@ -408,9 +394,9 @@ function cellular2D(x, y) {
   let oxy = (Kpy % 1) - KO;
   let oxz = (Kpz % 1) - KO;
 
-  let oyx = mod7(floor(Kpx)) * K - KO;
-  let oyy = mod7(floor(Kpy)) * K - KO;
-  let oyz = mod7(floor(Kpz)) * K - KO;
+  let oyx = (floor(Kpx) % 7) * K - KO;
+  let oyy = (floor(Kpy) % 7) * K - KO;
+  let oyz = (floor(Kpz) % 7) * K - KO;
 
   let dxx = Pfx + 0.5 + JITTER * oxx;
   let dxy = Pfx + 0.5 + JITTER * oxy;
@@ -436,9 +422,9 @@ function cellular2D(x, y) {
   oxy = (Kpy % 1) - KO;
   oxz = (Kpz % 1) - KO;
 
-  oyx = mod7(floor(Kpx)) * K - KO;
-  oyy = mod7(floor(Kpy)) * K - KO;
-  oyz = mod7(floor(Kpz)) * K - KO;
+  oyx = (floor(Kpx) % 7) * K - KO;
+  oyy = (floor(Kpy) % 7) * K - KO;
+  oyz = (floor(Kpz) % 7) * K - KO;
 
   dxx = Pfx + 0.5 + JITTER * oxx;
   dxy = Pfx + 0.5 + JITTER * oxy;
@@ -464,9 +450,9 @@ function cellular2D(x, y) {
   oxy = (Kpy % 1) - KO;
   oxz = (Kpz % 1) - KO;
 
-  oyx = mod7(floor(Kpx)) * K - KO;
-  oyy = mod7(floor(Kpy)) * K - KO;
-  oyz = mod7(floor(Kpz)) * K - KO;
+  oyx = (floor(Kpx) % 7) * K - KO;
+  oyy = (floor(Kpy) % 7) * K - KO;
+  oyz = (floor(Kpz) % 7) * K - KO;
 
   dxx = Pfx + 0.5 + JITTER * oxx;
   dxy = Pfx + 0.5 + JITTER * oxy;
@@ -608,9 +594,115 @@ function basicPerlin(x, y) {
  * @copyright Alexis Munsayac 2019
  */
 
+/**
+ * @memberof Unpleasant
+ * Classic Perlin 2D Noise
+ * @example
+ * import { classicPerlinNoise } from 'unpleasant';
+ * let noise = classicPerlinNoise(Math.random(), Math.random());
+ * @param {!Number} x
+ * @param {!Number} y
+ * @returns {Number}
+ */
+const classicPerlin = (x, y) => {
+  const Pix = floor(x) % 289;
+  const Piy = floor(y) % 289;
+  const Piz = floor(x + 1.0) % 289;
+  const Piw = floor(y + 1.0) % 289;
+
+  const Pfx = x % 1;
+  const Pfy = y % 1;
+  const Pfz = (x - 1) % 1;
+  const Pfw = (y - 1) % 1;
+
+  const ix = permute289(permute289(Pix) + Piy);
+  const iy = permute289(permute289(Piz) + Piy);
+  const iz = permute289(permute289(Pix) + Piw);
+  const iw = permute289(permute289(Piz) + Piw);
+
+  const gxx = 2.0 * ((ix * K_41) % 1) - 1.0;
+  const gxy = 2.0 * ((iy * K_41) % 1) - 1.0;
+  const gxz = 2.0 * ((iz * K_41) % 1) - 1.0;
+  const gxw = 2.0 * ((iw * K_41) % 1) - 1.0;
+
+  const gyx = abs(gxx) - 0.5 + floor(gxx + 0.5);
+  const gyy = abs(gxy) - 0.5 + floor(gxy + 0.5);
+  const gyz = abs(gxz) - 0.5 + floor(gxw + 0.5);
+  const gyw = abs(gxw) - 0.5 + floor(gxz + 0.5);
+
+  let g00x = gxx;
+  let g00y = gyx;
+  let g01x = gxy;
+  let g01y = gyy;
+  let g10x = gxz;
+  let g10y = gyz;
+  let g11x = gxw;
+  let g11y = gyw;
+
+  const normx = 1.79284291400159 - 0.85373472095314 * g00x * g00x + g00y * g00y;
+  const normy = 1.79284291400159 - 0.85373472095314 * g01x * g01x + g01y * g01y;
+  const normz = 1.79284291400159 - 0.85373472095314 * g10x * g10x + g10y * g10y;
+  const normw = 1.79284291400159 - 0.85373472095314 * g11x * g11x + g11y * g11y;
+
+  g00x *= normx;
+  g00y *= normx;
+
+  g01x *= normy;
+  g01y *= normy;
+
+  g10x *= normz;
+  g10y *= normz;
+
+  g11x *= normw;
+  g11y *= normw;
+
+  const n00 = g00x * Pfx + g00y * Pfy;
+  const n10 = g10x * Pfz + g10y * Pfy;
+  const n01 = g01x * Pfx + g01y * Pfw;
+  const n11 = g11x * Pfz + g11y * Pfw;
+
+  const fadex = fade(Pfx);
+  const fadey = fade(Pfy);
+
+  const nx = mix(n00, n10, fadex);
+  const ny = mix(n01, n11, fadex);
+
+  const n = mix(nx, ny, fadey);
+  return 2.3 * n;
+};
+
+/**
+ * @license
+ * MIT License
+ *
+ * Copyright (c) 2019 Alexis Munsayac
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ *
+ * @author Alexis Munsayac <alexis.munsayac@gmail.com>
+ * @copyright Alexis Munsayac 2019
+ */
+
 exports.generic1Noise1D = generic11D;
 exports.generic1Noise2D = generic12D;
 exports.generic2Noise = generic2;
 exports.generic3Noise = generic3;
 exports.cellular2DNoise = cellular2D;
 exports.basicPerlinNoise = basicPerlin;
+exports.classicPerlinNoise = classicPerlin;
