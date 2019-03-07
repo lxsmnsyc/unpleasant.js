@@ -54,13 +54,36 @@ export const smoothstep = (x, y, t) => {
 /**
  * @ignore
  */
-export const generic1rand = x => (sin(x) * 43758.5453123) % 1;
-
+export const NOISE_CONSTANT = 43758.5453123;
 /**
  * @ignore
  */
-export const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * 43758.5453123) % 1;
+export const MOD_289_CONST = 0.00346020761;
 /**
  * @ignore
  */
-export const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * 43758.5453);
+export const MOD_7_CONST = 0.14285714285;
+/**
+ * @ignore
+ */
+export const mod289 = x => x - floor(x * MOD_289_CONST) * 289.0;
+/**
+ * @ignore
+ */
+export const mod7 = x => x - floor(x * MOD_7_CONST) * 289.0;
+/**
+ * @ignore
+ */
+export const permute289 = x => mod289((34.0 * x + 1.0) * x);
+/**
+ * @ignore
+ */
+export const generic1rand = x => (sin(x) * NOISE_CONSTANT) % 1;
+/**
+ * @ignore
+ */
+export const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * NOISE_CONSTANT) % 1;
+/**
+ * @ignore
+ */
+export const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * NOISE_CONSTANT);

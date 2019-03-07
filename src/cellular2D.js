@@ -26,28 +26,8 @@
  * @copyright Alexis Munsayac 2019
  */
 import {
-  floor, min, max, sqrt,
+  floor, min, max, sqrt, MOD_7_CONST, mod289, permute289 as permute, mod7,
 } from './utils';
-/**
- * @ignore
- */
-const MOD_289_CONST = 0.00346020761;
-/**
- * @ignore
- */
-const mod289 = x => x - floor(x * MOD_289_CONST) * 289.0;
-/**
- * @ignore
- */
-const MOD_7_CONST = 0.14285714285;
-/**
- * @ignore
- */
-const mod7 = x => x - floor(x * MOD_7_CONST) * 289.0;
-/**
- * @ignore
- */
-const permute = x => mod289((34.0 * x + 1.0) * x);
 /**
  * @ignore
  */
