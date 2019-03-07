@@ -25,15 +25,11 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-const { sin, floor } = Math;
-
-const rand = x => (sin(x) * 43758.5453123) % 1;
-
-const mix = (x, y, t) => x + (y - x) * t;
+import { floor, mix, generic1rand as rand } from './utils';
 
 /**
  * @memberof Unpleasant
- * @description
+ * @descriptions
  * 1-dimensional Generic 1 Noise
  * @see {@link https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83|GLSL Noise}
  * @param {Number} x
