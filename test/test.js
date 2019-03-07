@@ -1,7 +1,7 @@
 import assert from 'assert';
 import {
   generic3Noise, generic2Noise, generic1Noise1D, generic1Noise2D,
-  basicPerlinNoise, classicPerlin2DNoise, cellular2DNoise,
+  basicPerlinNoise, classicPerlin2DNoise, cellular2DNoise, simplex2DNoise,
 } from '../src';
 
 const randomizer = () => Math.random() * 10000;
@@ -69,6 +69,16 @@ describe('unpleasant', () => {
     it('should return a number', () => {
       for (let i = 0; i < 1000; i++) {
         assert(typeof classicPerlin2DNoise(randomizer(), randomizer()) === 'number');
+      }
+    });
+  });
+  /**
+   * @test {unpleasant#simplex2DNoise}
+   */
+  describe('.simplex2DNoise', () => {
+    it('should return a number', () => {
+      for (let i = 0; i < 1000; i++) {
+        assert(typeof simplex2DNoise(randomizer(), randomizer()) === 'number');
       }
     });
   });

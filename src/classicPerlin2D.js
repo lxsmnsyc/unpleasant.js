@@ -26,7 +26,7 @@
  * @copyright Alexis Munsayac 2019
  */
 import {
-  floor, permute289, K_41, abs, fade, mix,
+  floor, permute289, K_41, abs, fade, mix, taylorInvSqrt,
 } from './utils';
 
 /**
@@ -74,10 +74,10 @@ const classicPerlin2D = (x, y) => {
   let g11x = gxw;
   let g11y = gyw;
 
-  const normx = 1.79284291400159 - 0.85373472095314 * g00x * g00x + g00y * g00y;
-  const normy = 1.79284291400159 - 0.85373472095314 * g01x * g01x + g01y * g01y;
-  const normz = 1.79284291400159 - 0.85373472095314 * g10x * g10x + g10y * g10y;
-  const normw = 1.79284291400159 - 0.85373472095314 * g11x * g11x + g11y * g11y;
+  const normx = taylorInvSqrt(g00x * g00x + g00y * g00y);
+  const normy = taylorInvSqrt(g01x * g01x + g01y * g01y);
+  const normz = taylorInvSqrt(g10x * g10x + g10y * g10y);
+  const normw = taylorInvSqrt(g11x * g11x + g11y * g11y);
 
   g00x *= normx;
   g00y *= normx;

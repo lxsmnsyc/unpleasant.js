@@ -84,3 +84,7 @@ export const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * NOISE_CONST
  * @ignore
  */
 export const fade = t => t * t * t * (t * (t * 6.0 - 15.0) + 10.0);
+/**
+ * @ignore
+ */
+export const taylorInvSqrt = x => 1.79284291400159 - 0.85373472095314 * x;

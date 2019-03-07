@@ -38,3 +38,5 @@ export { default as cellular2DNoise } from './cellular2D';
 
 export { default as basicPerlinNoise } from './basicPerlin';
 export { default as classicPerlin2DNoise } from './classicPerlin2D';
+
+export { default as simplex2DNoise } from './simplex2D';
