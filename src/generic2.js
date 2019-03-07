@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-import { generic2rand as rand, floor, mix } from './utils';
+import mix, { generic2rand as rand, floor } from './utils';
 /**
  * @memberof Unpleasant
  * @desc
@@ -34,8 +34,8 @@ import { generic2rand as rand, floor, mix } from './utils';
  * import { generic2Noise } from 'unpleasant';
  * const noise = generic2Noise(Math.random(), Math.random());
  * @see https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
- * @param {Number} x
- * @param {Number} y
+ * @param {!Number} x
+ * @param {!Number} y
  * @returns {Number}
  */
 const generic2 = (x, y) => {

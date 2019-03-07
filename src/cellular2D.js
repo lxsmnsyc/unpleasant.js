@@ -52,7 +52,13 @@ const permute = x => mod289((34.0 * x + 1.0) * x);
  * @ignore
  */
 const K = MOD_7_CONST;
+/**
+ * @ignore
+ */
 const KO = 0.42857142857;
+/**
+ * @ignore
+ */
 const JITTER = 1.0;
 /**
  * @memberof Unpleasant
@@ -72,8 +78,8 @@ const JITTER = 1.0;
  *
  * @see https://en.wikipedia.org/wiki/Worley_noise
  * @see https://github.com/ashima/webgl-noise/blob/master/src/cellular2D.glsl
- * @param {Number} x - x component of a 2D vector
- * @param {Number} y - y component of a 2D vector
+ * @param {!Number} x - x component of a 2D vector
+ * @param {!Number} y - y component of a 2D vector
  * @returns {Array} a 2D vector
  */
 export default function cellular2D(x, y) {
