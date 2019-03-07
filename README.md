@@ -18,6 +18,28 @@ unpleasant.js provides noise functions for JS, useful for procedural texturing a
 
 ## Build
 
+First, clone the repo, then run:
+
+```bash
+npm install
+```
+
+which will install the dependencies.
+
+To run the tests:
+
+```bash
+npm test
+```
+
+Code coverage results will be generated at ```coverage/```
+
+To generate the docs:
+
+```bash
+npm run esdoc
+```
+
 ## License
 
 MIT License
