@@ -41,7 +41,7 @@ import {
  * @param {!Number} y - y component of a 2D vector
  * @returns {Number}
  */
-export default function basicPerlin(x, y) {
+const basicPerlin = (x, y) => {
   const i = floor(x);
   const j = floor(y);
 
@@ -57,4 +57,6 @@ export default function basicPerlin(x, y) {
   const x2 = mix(c, d, tx);
 
   return mix(x1, x2, ty);
-}
+};
+
+export default basicPerlin;

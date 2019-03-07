@@ -62,7 +62,7 @@ const JITTER = 1.0;
  * @param {!Number} y - y component of a 2D vector
  * @returns {Array} a 2D vector
  */
-export default function cellular2D(x, y) {
+const cellular2D = (x, y) => {
   const Pix = floor(x) % 289;
   const Piy = floor(y) % 289;
 
@@ -205,4 +205,6 @@ export default function cellular2D(x, y) {
   d1y = min(d1y, d2x);
 
   return [sqrt(d1x), sqrt(d1y)];
-}
+};
+
+export default cellular2D;
