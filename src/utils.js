@@ -25,18 +25,38 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
+
+/**
+ * @ignore
+ */
 export const {
   sin, cos, floor, min, max, PI,
 } = Math;
 
+/**
+ * @ignore
+ */
 export const mix = (x, y, t) => x + (y - x) * t;
 
+/**
+ * @ignore
+ */
 export const clamp = (a, b, c) => max(a, min(b, c));
 
+/**
+ * @ignore
+ */
 export const smoothstep = (x, y, t) => {
   const a = clamp((t - x) / (y - x), 0.0, 1.0);
   return a * a * (3.0 - 2.0 * a);
 };
 
+/**
+ * @ignore
+ */
 export const generic1rand = x => (sin(x) * 43758.5453123) % 1;
+
+/**
+ * @ignore
+ */
 export const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * 43758.5453123) % 1;
