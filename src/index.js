@@ -29,5 +29,6 @@
 /**
  * @namespace Unpleasant
  */
-export { default as generic11D } from './generic11D';
-export { default as generic12D } from './generic12D';
+export { default as generic1Noise1D } from './generic11D';
+export { default as generic1Noise2D } from './generic12D';
+export { default as generic2Noise } from './generic2';

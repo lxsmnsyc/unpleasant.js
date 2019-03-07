@@ -25,25 +25,35 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-
-const {
+import {
   floor, min, max, sqrt,
-} = Math;
-
+} from './utils';
+/**
+ * @ignore
+ */
 const MOD_289_CONST = 0.00346020761;
-
+/**
+ * @ignore
+ */
 const mod289 = x => x - floor(x * MOD_289_CONST) * 289.0;
-
+/**
+ * @ignore
+ */
 const MOD_7_CONST = 0.14285714285;
-
+/**
+ * @ignore
+ */
 const mod7 = x => x - floor(x * MOD_7_CONST) * 289.0;
-
+/**
+ * @ignore
+ */
 const permute = x => mod289((34.0 * x + 1.0) * x);
-
+/**
+ * @ignore
+ */
 const K = MOD_7_CONST;
 const KO = 0.42857142857;
 const JITTER = 1.0;
-
 /**
  * @memberof Unpleasant
  * @description
@@ -60,8 +70,8 @@ const JITTER = 1.0;
  * In the case of three dimensions, nine cubes' points need to be generated,
  * to be sure to find the closest.
  *
- * @see {@link https://en.wikipedia.org/wiki/Worley_noise|Worley noise}
- * @see {@link https://github.com/ashima/webgl-noise/blob/master/src/cellular2D.glsl|Cellular2D noise in WebGL}
+ * @see https://en.wikipedia.org/wiki/Worley_noise
+ * @see https://github.com/ashima/webgl-noise/blob/master/src/cellular2D.glsl
  * @param {Number} x - x component of a 2D vector
  * @param {Number} y - y component of a 2D vector
  * @returns {Array} a 2D vector

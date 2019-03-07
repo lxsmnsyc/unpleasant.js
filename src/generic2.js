@@ -28,9 +28,12 @@
 import { generic2rand as rand, floor, mix } from './utils';
 /**
  * @memberof Unpleasant
- * @description
+ * @desc
  * Generic 2 Noise
- * @see {@link https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83|GLSL Noise}
+ * @example
+ * import { generic2Noise } from 'unpleasant';
+ * const noise = generic2Noise(Math.random(), Math.random());
+ * @see https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
  * @param {Number} x
  * @param {Number} y
  * @returns {Number}

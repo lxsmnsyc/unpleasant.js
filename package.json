@@ -4,7 +4,8 @@
   "description": "💫 Noise functions for JS ",
   "main": "index.js",
   "scripts": {
-    "test": "nyc --reporter=html mocha -R spec"
+    "test": "nyc --reporter=html mocha -R spec",
+    "esdoc": "./node_modules/.bin/esdoc"
   },
   "repository": {
     "type": "git",

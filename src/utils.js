@@ -30,7 +30,7 @@
  * @ignore
  */
 export const {
-  sin, cos, floor, min, max, PI,
+  sin, cos, floor, min, max, PI, sqrt
 } = Math;
 
 /**

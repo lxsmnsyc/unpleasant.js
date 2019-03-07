@@ -28,9 +28,12 @@
 import { floor, mix, generic1rand as rand } from './utils';
 /**
  * @memberof Unpleasant
- * @descriptions
+ * @desc
  * 1-dimensional Generic 1 Noise
- * @see {@link https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83|GLSL Noise}
+ * @example
+ * import { generic1Noise1D } from 'unpleasant';
+ * const noise = generic1Noise1D(Math.random());
+ * @see https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
  * @param {Number} x
  * @returns {Number}
  */
