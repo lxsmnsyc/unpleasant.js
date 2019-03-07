@@ -1,12 +1,15 @@
 # unpleasant.js
 
-💫 Noise functions for JS 
+💫 Noise functions for JS
 
 [![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js)
 [![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
 [![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/unpleasant.js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/unpleasant.js?targetFile=package.json)
 
+[![devDependencies Status](https://david-dm.org/lxsmnsyc/unpleasant.js/dev-status.svg)](https://david-dm.org/lxsmnsyc/unpleasant.js?type=dev)
+
 ## Introdcution
+
 unpleasant.js provides noise functions for JS, useful for procedural texturing and other graphics-related stuffs.
 
 ## Usage
@@ -14,6 +17,7 @@ unpleasant.js provides noise functions for JS, useful for procedural texturing a
 ## Build
 
 ## License
+
 MIT License
 
 Copyright (c) 2019 Alexis Munsayac
