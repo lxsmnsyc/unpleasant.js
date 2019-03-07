@@ -26,7 +26,7 @@
  * @copyright Alexis Munsayac 2019
  */
 import {
-  floor, smoothstep, mix, generic1rand as rand,
+  floor, smoothstep, mix, generic2rand as rand,
 } from './utils';
 /**
  * @memberof Unpleasant
