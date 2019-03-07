@@ -2,6 +2,8 @@
 
 💫 Noise functions for JS
 
+[![HitCount](http://hits.dwyl.com/LXSMNSYC/unpleasant.js.svg)](http://hits.dwyl.com/LXSMNSYC/unpleasant.js)
+
 [![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js)
 [![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
 [![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/unpleasant.js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/unpleasant.js?targetFile=package.json)
