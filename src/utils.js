@@ -42,13 +42,16 @@ export const mix = (x, y, t) => x + (y - x) * t;
  * @ignore
  */
 export const clamp = (a, b, c) => max(a, min(b, c));
-
+/**
+ * @ignore
+ */
+export const smooth = x => x * x * (3.0 - 2.0 * x);
 /**
  * @ignore
  */
 export const smoothstep = (x, y, t) => {
   const a = clamp((t - x) / (y - x), 0.0, 1.0);
-  return a * a * (3.0 - 2.0 * a);
+  return smooth(a * a * (3.0 - 2.0 * a));
 };
 
 /**

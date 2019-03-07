@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-import mix, { generic2rand as rand, floor } from './utils';
+import mix, { generic2rand as rand, floor, smooth } from './utils';
 /**
  * @memberof Unpleasant
  * @desc
@@ -42,11 +42,8 @@ const generic2 = (x, y) => {
   const ix = floor(x);
   const iy = floor(y);
 
-  let ux = x % 1;
-  let uy = y % 1;
-
-  ux = ux * ux * (3.0 - 2.0 * ux);
-  uy = uy * uy * (3.0 - 2.0 * uy);
+  const ux = smooth(x % 1);
+  const uy = smooth(y % 1);
 
   const a = mix(rand(ix, iy), rand(ix + 1.0, iy), ux);
   const b = mix(rand(ix, iy + 1.0), rand(ix + 1.0, iy + 1.0), ux);
