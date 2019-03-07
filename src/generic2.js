@@ -25,19 +25,30 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-import { floor, mix, generic1rand as rand } from './utils';
+import { generic2rand as rand, floor, mix } from './utils';
 /**
  * @memberof Unpleasant
- * @descriptions
- * 1-dimensional Generic 1 Noise
+ * @description
+ * Generic 2 Noise
  * @see {@link https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83|GLSL Noise}
  * @param {Number} x
+ * @param {Number} y
  * @returns {Number}
  */
-const generic11D = (x) => {
-  const fl = floor(x);
-  const fc = x % 1;
+const generic2 = (x, y) => {
+  const ix = floor(x);
+  const iy = floor(y);
 
-  return mix(rand(fl), rand(fl + 1.0), fc);
+  let ux = x % 1;
+  let uy = y % 1;
+
+  ux = ux * ux * (3.0 - 2.0 * ux);
+  uy = uy * uy * (3.0 - 2.0 * uy);
+
+  const a = mix(rand(ix, iy), rand(ix + 1.0, iy), ux);
+  const b = mix(rand(ix, iy + 1.0), rand(ix + 1.0, iy + 1.0), ux);
+
+  const res = mix(a, b, uy);
+  return res * res;
 };
-export default generic11D;
+export default generic2;

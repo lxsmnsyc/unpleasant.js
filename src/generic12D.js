@@ -48,5 +48,4 @@ const generic12D = (x, y) => {
   const b = mix(rand(bx, by + 1.0), rand(bx + 1.0, by + 1.0), fx);
   return mix(a, b, fy);
 };
-
 export default generic12D;
