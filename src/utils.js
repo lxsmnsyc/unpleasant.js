@@ -60,3 +60,7 @@ export const generic1rand = x => (sin(x) * 43758.5453123) % 1;
  * @ignore
  */
 export const generic2rand = (x, y) => (sin(x * 12.9898 + y * 4.1414) * 43758.5453123) % 1;
+/**
+ * @ignore
+ */
+export const perlinRand = (x, y) => (sin(x * 12.9898 + y * 78.233) * 43758.5453);

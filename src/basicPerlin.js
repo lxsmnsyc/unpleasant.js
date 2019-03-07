@@ -25,14 +25,36 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-
+import {
+  cos, floor, mix, PI, perlinRand as rand,
+} from './utils';
 /**
- * @namespace Unpleasant
+ * @memberof Unpleasant
+ * @desc
+ * Perlin noise is a procedural texture primitive,
+ * a type of gradient noise used by visual effects
+ * artists to increase the appearance of realism
+ * in computer graphics.
+ * @see https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
+ * @see https://en.wikipedia.org/wiki/Perlin_noise
+ * @param {!Number} x - x component of a 2D vector
+ * @param {!Number} y - y component of a 2D vector
+ * @returns {Number}
  */
-export { default as generic1Noise1D } from './generic11D';
-export { default as generic1Noise2D } from './generic12D';
-export { default as generic2Noise } from './generic2';
+export default function basicPerlin(x, y) {
+  const i = floor(x);
+  const j = floor(y);
 
-export { default as cellular2DNoise } from './cellular2D';
+  const tx = 0.5 * (1.0 - cos(PI * x));
+  const ty = 0.5 * (1.0 - cos(PI * y));
 
-export { default as basicPerlinNoise } from './basicPerlin';
+  const a = rand(i, j);
+  const b = rand(i + 1, j);
+  const c = rand(i, j + 1);
+  const d = rand(i + 1, j + 1);
+
+  const x1 = mix(a, b, tx);
+  const x2 = mix(c, d, tx);
+
+  return mix(x1, x2, ty);
+}
