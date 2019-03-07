@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js)
 [![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
+[![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/unpleasant.js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/unpleasant.js?targetFile=package.json)
 
 ## Introdcution
 unpleasant.js provides noise functions for JS, useful for procedural texturing and other graphics-related stuffs.
