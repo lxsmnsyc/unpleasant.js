@@ -25,7 +25,9 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2019
  */
-import mix, { generic2rand as rand, floor, smooth } from './utils';
+import {
+  mix, generic2rand as rand, floor, smooth,
+} from './utils';
 /**
  * @memberof Unpleasant
  * @desc

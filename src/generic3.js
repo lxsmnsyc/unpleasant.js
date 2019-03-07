@@ -40,6 +40,7 @@ const K_41 = 0.0243902439;
  * @example
  * import { generic3Noise } from 'unpleasant';
  * let noise = generic3Noise(Math.random(), Math.random(), Math.random());
+ * @see https://gist.github.com/patriciogonzalezvivo/670c22f3966e662d2f83
  * @param {!Number} x
  * @param {!Number} y
  * @param {!Number} z
