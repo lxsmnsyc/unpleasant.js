@@ -3,6 +3,7 @@
 💫 Noise functions for JS
 
 [![HitCount](http://hits.dwyl.com/LXSMNSYC/unpleasant.js.svg)](http://hits.dwyl.com/LXSMNSYC/unpleasant.js)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLXSMNSYC%2Funpleasant.js.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FLXSMNSYC%2Funpleasant.js?ref=badge_shield)
 
 [![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js)
 [![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
@@ -63,3 +64,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FLXSMNSYC%2Funpleasant.js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FLXSMNSYC%2Funpleasant.js?ref=badge_large)
