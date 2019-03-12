@@ -17,7 +17,7 @@
     "mocha": "npm run linux-mocha || npm run win-mocha",
     "test": "npm run linux-test || npm run win-test",
     "esdoc": "npm run linux-esdoc || npm run win-esdoc",
-    "build": "npm run linux-build || npm run win-build"
+    "build": "npm run esdoc && npm test"
   },
   "repository": {
     "type": "git",
