@@ -4,10 +4,14 @@
 
 [![HitCount](http://hits.dwyl.com/LXSMNSYC/unpleasant.js.svg)](http://hits.dwyl.com/LXSMNSYC/unpleasant.js)
 
-[![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js)
-[![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
-[![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/unpleasant.js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/unpleasant.js?targetFile=package.json)
+| Platform | Build Status |
+| --- | --- |
+| Linux | [![Build Status](https://travis-ci.org/LXSMNSYC/unpleasant.js.svg?branch=master)](https://travis-ci.org/LXSMNSYC/unpleasant.js) |
+| Windows | [![Build status](https://ci.appveyor.com/api/projects/status/52q204b0haqyr2r5?svg=true)](https://ci.appveyor.com/project/LXSMNSYC/unpleasant-js) |
 
+[![codecov](https://codecov.io/gh/LXSMNSYC/unpleasant.js/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/unpleasant.js)
+
+[![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/unpleasant.js/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/unpleasant.js?targetFile=package.json)
 [![devDependencies Status](https://david-dm.org/lxsmnsyc/unpleasant.js/dev-status.svg)](https://david-dm.org/lxsmnsyc/unpleasant.js?type=dev)
 
 ## Introdcution
